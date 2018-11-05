@@ -1,3 +1,25 @@
-<p>
-  contacts works!
-</p>
+<div *ngIf="contacts" class="row">
+    <div class="col-md-3">
+      <div matRipple>
+        <mat-card class="bg-warning mat-elevation-z2" (click)="openForm()" matTooltip="Create New Contact">
+          <mat-card-content>
+            <div class="justifier-column text-center m100h mouse-pointer">
+              <mat-icon style="color: white;font-size: 2rem;">add_circle</mat-icon>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div *ngFor="let contact of contacts" class="col-md-3">
+        <mat-card class="mat-elevation-z2" [style.backgroundColor]="helper.make_bg_color(contact.id)" [style.color]="'white'">
+            <mat-card-header class="justifier-column text-center m60h">
+                <mat-card-title>{{contact.name}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-actions>
+                <button matTooltip="Edit contact" (click)="openForm(contact.id)" mat-icon-button><mat-icon>create</mat-icon></button>
+            </mat-card-actions>
+        </mat-card>
+      </div>
+  </div>
+<mat-progress-bar *ngIf="buffering" mode="buffer"></mat-progress-bar>
+<p *ngIf="errors">{{errors}}</p>

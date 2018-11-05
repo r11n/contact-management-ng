@@ -6,6 +6,7 @@ import { SignupComponent } from './auth/signup/signup.component';
 import { LoginActivateChild } from './core/guards/login.activatechild';
 import { GroupsComponent } from './ui/containers/groups/groups.component';
 import { ContactsComponent } from './ui/containers/contacts/contacts.component';
+import { GroupsResolver } from './ui/resolvers/groups.resolver';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: GroupsComponent
+        component: GroupsComponent,
+        resolve: {groups: GroupsResolver}
       },
       {
         path: 'groups/:id/contacts',
@@ -30,6 +32,10 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent
+  },
+  {
+    path: '**',
+    redirectTo: '/'
   }
 ];
 

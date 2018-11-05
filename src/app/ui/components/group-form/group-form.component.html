@@ -1,0 +1,21 @@
+<h3> {{isEdit ? 'Edit' : 'Create New'}} Group</h3>
+
+<div mat-dialog-content *ngIf="groupForm">
+  <form [formGroup]="groupForm" id="groupForm" (ngSubmit)="onSubmit()" class="form-container">
+    <mat-form-field>
+      <input matInput placeholder="Name *" formControlName="name">
+      <input type="hidden" formControlName="user_id">
+    </mat-form-field>
+    <mat-slide-toggle formControlName="is_favorite" >
+        favourite
+    </mat-slide-toggle>
+    <mat-slide-toggle formControlName="status" >
+      {{groupForm.value.status ? 'active' : 'inactive'}}
+    </mat-slide-toggle>
+  </form>
+</div>
+<div mat-dialog-actions *ngIf="groupForm">
+  <button mat-button (click)="onNoClick()">Close</button>
+  <button mat-raised-button color="primary" type="submit" form="groupForm" [disabled]="!groupForm.valid">Save</button>
+</div>
+

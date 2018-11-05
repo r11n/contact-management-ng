@@ -8,3 +8,69 @@ app-root, app-login, app-signup {
 app-login, app-signup {
     background-color: #ffc107 !important;
 }
+.fixated-top {
+    position: fixed;
+    top: 0;
+}
+.flex-spacer {
+    flex: 1 1 auto;
+} 
+.link {
+    text-decoration: none;
+    color: white;
+}
+.link:hover {
+    color: white;
+}
+.active {
+    color: gray;
+}
+.active:hover {
+    color: gray;
+}
+.m200h {
+    min-height: 200px;
+}
+
+.m100h {
+    min-height: 100px;
+}
+
+.m150h {
+    min-height: 150px;
+}
+
+.m120h {
+    min-height: 120px;
+}
+
+.m110h {
+    min-height: 110px;
+}
+
+.m80h {
+    min-height: 80px;
+}
+.m70h {
+    min-height: 70px;
+}
+.m60h {
+    min-height: 60px;
+}
+
+.justifier-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.mouse-pointer {
+    cursor: pointer;
+}
+
+app-header {
+    .mat-toolbar {
+        z-index: 999 !important;
+    }
+}
