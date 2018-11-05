@@ -2,28 +2,33 @@
     <div class="row justify-content-center py-5">
         <div class="col-lg-5">
             <mat-card>
-                <div class="example-container text-center">
-                  <form [formGroup]="signupForm" class="example-container" (ngSubmit)="formSubmit()"> 
-                      <mat-form-field>
-                          <input matInput placeholder="Name" type="text" formControlName="name">
-                      </mat-form-field>
-                      <mat-form-field>
-                          <input matInput placeholder="Personal Identity Number" type="text" formControlName="plain_identity">
-                      </mat-form-field>
-                      <mat-form-field>
-                          <input matInput placeholder="Email *" type="email" formControlName="email">
-                      </mat-form-field>
-                      <mat-form-field>
-                          <input matInput placeholder="Password *" type="password" formControlName="password">
-                      </mat-form-field>
-                      <mat-form-field>
-                          <input matInput placeholder="Password Confirmation *" type="password" formControlName="password_confirmation">
-                      </mat-form-field>
-                      <button mat-raised-button color="primary" type="submit" [disabled]="!signupForm.valid">SignUp</button>
-                  </form>
-                  <p *ngIf='responseText' class='mt-3 text-danger' [innerHtml]="responseText"></p>
-                  <p class="mt-4">Already a member? <a routerLink="/login" routerLinkActive="active">Login</a></p>
-                </div>
+                <mat-card-header>
+                    <mat-card-title>Sign Up</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                  <div class="example-container text-center">
+                    <form [formGroup]="signupForm" class="example-container" (ngSubmit)="formSubmit()"> 
+                        <mat-form-field>
+                            <input matInput placeholder="Name" type="text" formControlName="name">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput placeholder="Personal Identity Number" type="text" formControlName="plain_identity">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput placeholder="Email *" type="email" formControlName="email">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput placeholder="Password *" type="password" formControlName="password">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input matInput placeholder="Password Confirmation *" type="password" formControlName="password_confirmation">
+                        </mat-form-field>
+                        <button mat-raised-button color="primary" type="submit" [disabled]="!signupForm.valid">SignUp</button>
+                    </form>
+                    <p *ngIf='responseText' class='mt-3 text-danger' [innerHtml]="responseText"></p>
+                    <p class="mt-4">Already a member? <a routerLink="/login" routerLinkActive="active">Login</a></p>
+                  </div>
+                </mat-card-content>
             </mat-card>
         </div>
     </div>
