@@ -7,6 +7,7 @@ import { LoginActivateChild } from './core/guards/login.activatechild';
 import { GroupsComponent } from './ui/containers/groups/groups.component';
 import { ContactsComponent } from './ui/containers/contacts/contacts.component';
 import { GroupsResolver } from './ui/resolvers/groups.resolver';
+import { DomainsComponent } from './ui/containers/domains/domains.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
         component: ContactsComponent
       }
     ]
+  },
+  {
+    path: 'domains',
+    component: DomainsComponent
   },
   {
     path: 'login',

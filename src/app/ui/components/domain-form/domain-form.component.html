@@ -1,0 +1,20 @@
+<h3>Configure Allowed Domains</h3>
+<div mat-dialog-content *ngIf="domains">
+    <mat-form-field class="example-chip-list">
+        <mat-chip-list #chipList>
+          <mat-chip *ngFor="let domain of domains" [selectable]="selectable"
+                   [removable]="removable" (removed)="remove(domain)">
+            {{domain}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+          </mat-chip>
+          <input placeholder="New Domain..."
+                 [matChipInputFor]="chipList"
+                 [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                 [matChipInputAddOnBlur]="addOnBlur"
+                 (matChipInputTokenEnd)="add($event)">
+        </mat-chip-list>
+      </mat-form-field>      
+</div>
+<div mat-dialog-actions *ngIf="domains">
+  <button mat-button (click)="onNoClick()">Close</button>
+</div>

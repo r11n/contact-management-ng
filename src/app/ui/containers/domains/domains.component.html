@@ -1,0 +1,10 @@
+<div class="container py-5" *ngIf="!errors">
+  <blockquote class="blockquote">
+      <h1>Allowed Domains for Signup.</h1>
+      <footer class="blockquote-footer">The Following are the domains that are allowed for <a routerLink="/signup">Sign Up</a></footer>
+  </blockquote>
+  <ul class="list">
+      <li class="list-item" *ngFor="let domain of domains">{{domain}}</li>
+  </ul>
+</div>
+<div class="container" *ngIf="errors && !domains">{{errors}}</div>

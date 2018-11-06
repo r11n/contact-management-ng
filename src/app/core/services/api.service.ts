@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { StorageService } from './storage.service';
+import { Router } from '@angular/router';
 
 const baseUrl = `${environment.apiUrl}`;
 
@@ -13,7 +14,7 @@ const baseUrl = `${environment.apiUrl}`;
 })
 export class ApiService {
   token: string;
-  constructor(private http: HttpClient, private storage: StorageService) {
+  constructor(private http: HttpClient, private storage: StorageService, private router: Router) {
     this.syncToken();
    }
   // method for building headers based on tokens
@@ -128,6 +129,13 @@ export class ApiService {
 
   private syncToken() {
     this.token = this.storage.get('auth_token');
+  }
+
+  unauthLogOut(status: number) {
+    if (status === 401) {
+      this.storage.clear();
+      this.router.navigateByUrl('/login');
+    }
   }
 
   private handleErrors(error: any) {

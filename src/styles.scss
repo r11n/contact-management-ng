@@ -40,12 +40,28 @@ app-login, app-signup {
     min-height: 150px;
 }
 
+.m140h {
+    min-height: 140px;
+}
+
+.m130h {
+    min-height: 130px;
+}
+
 .m120h {
     min-height: 120px;
 }
 
 .m110h {
     min-height: 110px;
+}
+
+.m100h {
+    min-height: 110px;
+}
+
+.m90h {
+    min-height: 90px;
 }
 
 .m80h {
@@ -73,4 +89,26 @@ app-header {
     .mat-toolbar {
         z-index: 999 !important;
     }
+}
+
+.mat-list-icon {
+    color: rgba(0, 0, 0, 0.54);
+}
+
+@keyframes shake {
+    0% {top: 0}
+    2% {top: -3px}
+    4% {top: 5px}
+    6% {top: -8px}
+    8% {top: 8px}
+    10% {top: -5px}
+    12% {top: 3px}
+    14% {top: 0}
+  }
+
+.shaker {
+    animation-name: shake;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
 }

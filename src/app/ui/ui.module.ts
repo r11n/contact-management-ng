@@ -9,6 +9,9 @@ import { MaterialImportModule } from '../core/theme_modules/materialimport.modul
 import { GroupFormComponent } from './components/group-form/group-form.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DomainsComponent } from './containers/domains/domains.component';
+import { DomainFormComponent } from './components/domain-form/domain-form.component';
+import { ContactShowComponent } from './components/contact-show/contact-show.component';
 
 @NgModule({
   imports: [
@@ -24,10 +27,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     GroupsComponent,
     ContactsComponent,
     GroupFormComponent,
-    ContactFormComponent],
+    ContactFormComponent,
+    DomainsComponent,
+    DomainFormComponent,
+    ContactShowComponent],
   entryComponents: [
     GroupFormComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    DomainFormComponent,
+    ContactShowComponent
   ]
 })
 export class UiModule { }

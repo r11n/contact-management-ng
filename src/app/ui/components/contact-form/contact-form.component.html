@@ -1,3 +1,122 @@
-<p>
-  contact-form works!
-</p>
+<h3> {{isEdit ? 'Edit' : 'Create New'}} Contact</h3>
+
+<div mat-dialog-content *ngIf="contactForm">
+  <form [formGroup]="contactForm" id="contactForm" (ngSubmit)="onSubmit()" class="form-container">
+    <mat-form-field>
+      <input matInput placeholder="Name *" formControlName="name">
+      <input type="hidden" formControlName="user_id">
+      <input type="hidden" formControlName="group_id">
+    </mat-form-field>
+    <mat-slide-toggle formControlName="is_favorite" >
+        favourite
+    </mat-slide-toggle>
+    <div formArrayName="contact_numbers_attributes">
+      <div class="row">
+        <div class="col-md-3">
+          <b>Contact Numbers</b>
+        </div>
+        <div class="col-md-3">
+          <button mat-mini-fab class="ml-3" color="primary" type="button" (click)="addAttr('number')"><mat-icon>add</mat-icon></button>
+        </div>
+      </div>
+      <div *ngFor="let numb of contactForm.controls.contact_numbers_attributes.controls; let i=index">
+        <div [formGroupName]="i">
+            <mat-form-field>
+                <mat-select placeholder="Type *" formControlName="contact_type">
+                    <mat-option value="home">Home</mat-option>
+                    <mat-option value="work">Work</mat-option>
+                    <mat-option value="personal">Personal</mat-option>
+                    <mat-option value="fax">Fax</mat-option>
+                    <mat-option value="main">Main</mat-option>
+                    <mat-option value="home1">Home 1</mat-option>
+                    <mat-option value="work1">Work 1</mat-option>
+                    <mat-option value="personal1">Personal 1</mat-option>
+                    <mat-option value="fax1">Fax 1</mat-option>
+                    <mat-option value="main1">Main 1</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="number" formControlName="number" >
+            </mat-form-field>
+            <button mat-mini-fab color="warn" (click)="removeAttr(i, 'number')"  class="float-right mt-2"><mat-icon>delete</mat-icon>
+            </button>
+        </div>
+      </div>
+    </div>
+
+    <div formArrayName="contact_emails_attributes">
+      <div class="row">
+        <div class="col-md-3">
+          <b>Contact Emails</b>
+        </div>
+        <div class="col-md-3">
+          <button mat-mini-fab class="ml-3" color="primary" type="button" (click)="addAttr('email')"><mat-icon>add</mat-icon></button>
+        </div>
+      </div>
+      <div *ngFor="let ema of contactForm.controls.contact_emails_attributes.controls; let i=index">
+        <div [formGroupName]="i">
+            <mat-form-field>
+                <mat-select placeholder="Type *" formControlName="contact_type">
+                    <mat-option value="home">Home</mat-option>
+                    <mat-option value="work">Work</mat-option>
+                    <mat-option value="personal">Personal</mat-option>
+                    <mat-option value="fax">Fax</mat-option>
+                    <mat-option value="main">Main</mat-option>
+                    <mat-option value="home1">Home 1</mat-option>
+                    <mat-option value="work1">Work 1</mat-option>
+                    <mat-option value="personal1">Personal 1</mat-option>
+                    <mat-option value="fax1">Fax 1</mat-option>
+                    <mat-option value="main1">Main 1</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="email" formControlName="email" >
+            </mat-form-field>
+            <button mat-mini-fab color="warn" (click)="removeAttr(i, 'email')"  class="float-right mt-2"><mat-icon>delete</mat-icon>
+            </button>
+        </div>
+      </div>
+    </div>
+
+    <div formArrayName="contact_addresses_attributes">
+      <div class="row">
+        <div class="col-sm-3">
+          <b>Contact Addresses</b>
+        </div>
+        <div class="col-sm-3">
+          <button mat-mini-fab class="ml-3" color="primary" type="button" (click)="addAttr('address')"><mat-icon>add</mat-icon></button>
+        </div>
+      </div>
+      <div *ngFor="let addr of contactForm.controls.contact_addresses_attributes.controls; let i=index">
+        <div [formGroupName]="i">
+            <mat-form-field>
+                <mat-select placeholder="Type *" formControlName="contact_type">
+                    <mat-option value="home">Home</mat-option>
+                    <mat-option value="work">Work</mat-option>
+                    <mat-option value="personal">Personal</mat-option>
+                    <mat-option value="fax">Fax</mat-option>
+                    <mat-option value="main">Main</mat-option>
+                    <mat-option value="home1">Home 1</mat-option>
+                    <mat-option value="work1">Work 1</mat-option>
+                    <mat-option value="personal1">Personal 1</mat-option>
+                    <mat-option value="fax1">Fax 1</mat-option>
+                    <mat-option value="main1">Main 1</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <input matInput placeholder="address" formControlName="address" >
+            </mat-form-field>
+            <button mat-mini-fab color="warn" (click)="removeAttr(i, 'address')"  class="float-right mt-2"><mat-icon>delete</mat-icon>
+            </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<mat-progress-bar *ngIf="!contactForm" mode="buffer"></mat-progress-bar>
+<div mat-dialog-actions *ngIf="contactForm">
+  <button mat-button (click)="onNoClick()">Close</button>
+  <button mat-raised-button color="primary" type="submit" form="contactForm" [disabled]="!contactForm.valid">Save</button>
+</div>
+
+

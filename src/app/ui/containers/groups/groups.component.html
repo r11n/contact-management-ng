@@ -3,7 +3,7 @@
     <div matRipple>
       <mat-card class="bg-warning mat-elevation-z2" (click)="openForm()" matTooltip="Create New Group">
         <mat-card-content>
-          <div class="justifier-column text-center m120h mouse-pointer">
+          <div class="justifier-column text-center m140h mouse-pointer">
             <mat-icon style="color: white;font-size: 2rem;">add_circle</mat-icon>
           </div>
         </mat-card-content>
@@ -12,11 +12,15 @@
   </div>
   <div *ngFor="let group of groups" class="col-md-3 mb-3">
       <mat-card class="mat-elevation-z2" [style.backgroundColor]="makeBg(group.id)" [style.color]="'white'">
-          <mat-card-header class="justifier-column text-center m80h">
+          <mat-card-header class="justifier-column text-center m100h">
               <mat-card-title>
                 {{group.name}}
               </mat-card-title>
-              <mat-card-subtitle><mat-icon *ngIf="group.is_favorite && group.status" style="color: whitesmoke;">favorite</mat-icon><mat-icon *ngIf="!group.status">lock</mat-icon></mat-card-subtitle>
+              <mat-card-subtitle>
+                <mat-icon *ngIf="group.is_favorite && group.status" style="color: whitesmoke;">favorite</mat-icon>
+                <mat-icon *ngIf="!group.status">lock</mat-icon>
+                <p *ngIf="group.status"><small style="color: white;">{{group.count}} contacts</small></p>
+              </mat-card-subtitle>
           </mat-card-header>
           <mat-card-actions>
               <button matTooltip="Edit Group" (click)="openForm(group.id)" mat-icon-button><mat-icon>create</mat-icon></button>

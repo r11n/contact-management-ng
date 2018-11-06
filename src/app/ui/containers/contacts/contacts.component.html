@@ -17,9 +17,13 @@
             </mat-card-header>
             <mat-card-actions>
                 <button matTooltip="Edit contact" (click)="openForm(contact.id)" mat-icon-button><mat-icon>create</mat-icon></button>
+                <button matTooltip="show contact" (click)="openShow(contact.id)" mat-button>show</button>
             </mat-card-actions>
         </mat-card>
-      </div>
-  </div>
+    </div>
+</div>
+<div class="row mt-4 justifier-column" *ngIf="has_more">
+  <button class="shaker" mat-icon-button matTooltip="Load More" (click)="sync(true)" style="color: #2196f3;"><mat-icon style="font-size: 48px;">keyboard_arrow_down</mat-icon></button>
+</div>
 <mat-progress-bar *ngIf="buffering" mode="buffer"></mat-progress-bar>
 <p *ngIf="errors">{{errors}}</p>
