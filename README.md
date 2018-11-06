@@ -1,27 +1,20 @@
-# ContactManagementNg
+# Contact Management System Front End
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.4.
+Users can sign-up using company emails(only domains allowed by admin eg: if `company1.com`, `company2.com` are the allowed domains then users can only sign-up with those domains only). Users can create groups to manage contacts with support to alter the status of group. User can create any number of contacts with in group.
 
-## Development server
+## Setup instructions
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Make Sure [rails project]("https://github.com/r11n/contact-management-rails) is cloned and running.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- if  [rails project]("https://github.com/r11n/contact-management-rails) is running in a different system change the `apiUrl` in `src/environments/environment.ts`
 
-## Build
+- Run `npm install`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Run `ng serve`
 
-## Running unit tests
+## Version information
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Angular `6.1.10`
+- Angular Material `7.0.2`
+- Bootstrap `4.1.3`
