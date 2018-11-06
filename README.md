@@ -4,10 +4,10 @@ Users can sign-up using company emails(only domains allowed by admin eg: if `com
 
 ## Setup instructions
 
-- Make Sure [rails project]("https://github.com/r11n/contact-management-rails) is cloned and running.
+- Make Sure [rails project](https://github.com/r11n/contact-management-rails) is cloned and running.
 
 
-- if  [rails project]("https://github.com/r11n/contact-management-rails) is running in a different system change the `apiUrl` in `src/environments/environment.ts`
+- if  [rails project](https://github.com/r11n/contact-management-rails) is running in a different system change the `apiUrl` in `src/environments/environment.ts`
 
 - Run `npm install`.
 
