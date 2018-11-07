@@ -18,6 +18,7 @@ export class HeaderComponent implements OnInit {
     this.auth.isAdmin().subscribe(
       (res) => {
         this.is_admin = res.is_admin;
+        console.log(this.is_admin);
       },
       (rej) => {
         this.is_admin = false;

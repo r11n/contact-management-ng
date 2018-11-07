@@ -1,6 +1,6 @@
 <mat-toolbar class="fixated-top mat-elevation-z4" color="primary">
       <span>Contact Management</span>
       <span class="flex-spacer"></span>
-      <button mat-button (click)="openForm()">Domains</button>
+      <button *ngIf="is_admin" mat-button (click)="openForm()">Domains</button>
       <button mat-button (click)="signOut()">Log Out</button>
 </mat-toolbar>
