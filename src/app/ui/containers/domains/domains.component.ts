@@ -15,7 +15,6 @@ export class DomainsComponent implements OnInit {
     this.api.get('/allowed_domains').subscribe(
       (res) => {
         this.domains = res.domains;
-        console.log(this.domains);
       },
       (rej) => {
         this.api.unauthLogOut(rej.status);

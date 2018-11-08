@@ -62,7 +62,6 @@ export class ContactsComponent implements OnInit {
         this.errors = undefined;
       },
       (rej) => {
-        console.log(rej);
         // this.errors = rej;
         this.errors = rej.status + ' ' + rej.statusText;
         this.buffering = false;

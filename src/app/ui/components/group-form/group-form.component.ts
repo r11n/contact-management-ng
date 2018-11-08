@@ -31,7 +31,7 @@ export class GroupFormComponent implements OnInit {
           this.formInit();
         },
         (rej) => {
-          console.log(rej);
+          this.api.unauthLogOut(rej.status);
         }
       );
     } else {

@@ -23,7 +23,6 @@ export class ContactShowComponent implements OnInit {
       },
       (rej) => {
         this.api.unauthLogOut(rej.status);
-        console.log(rej);
       }
     );
   }

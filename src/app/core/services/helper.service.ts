@@ -35,7 +35,6 @@ export class HelperService {
         if (errors.hasOwnProperty(key)) {
           let err = '';
           if (errors[key] instanceof Array) {
-            console.log(errors[key]);
             err = `${ key }: ${ errors[key].join() }`;
           } else {
             err = `${ key }: ${ errors[key].toString()}`;

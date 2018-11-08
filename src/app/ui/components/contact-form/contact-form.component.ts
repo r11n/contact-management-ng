@@ -30,7 +30,6 @@ export class ContactFormComponent implements OnInit {
   ) { this.isEdit = this.contact_data.contact_id ? true : false; }
 
   ngOnInit() {
-    console.log(this.contact_data);
     if (this.isEdit) {
       this.api.get(`/groups/${this.contact_data.group_id}/contacts/${this.contact_data.contact_id}`).subscribe(
         (res) => {
@@ -38,7 +37,7 @@ export class ContactFormComponent implements OnInit {
           this.formInit();
         },
         (rej) => {
-          console.log(rej);
+          this.api.unauthLogOut(rej.status);
         }
       );
     } else {

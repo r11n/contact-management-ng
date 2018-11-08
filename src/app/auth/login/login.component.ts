@@ -35,14 +35,12 @@ export class LoginComponent implements OnInit {
   }
 
   formSubmit() {
-    console.log(this.loginForm);
     this.api.post('/auth/login', {user: this.loginForm.value} ).subscribe(
       (res) => {
         this.storage.set('auth_token', res.auth_token);
         this.router.navigateByUrl('/');
       },
       (err) => {
-        console.log(err);
         this.responseText = err.error.message;
       }
     );

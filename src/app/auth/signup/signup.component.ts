@@ -41,14 +41,12 @@ export class SignupComponent implements OnInit {
   }
 
   formSubmit() {
-    console.log(this.signupForm);
     this.api.post('/auth/signup', {user: this.signupForm.value} ).subscribe(
       (res) => {
         this.storage.set('auth_token', res.auth_token);
         this.router.navigateByUrl('/');
       },
       (err) => {
-        console.log(err);
         this.responseText = this.getErrors(err.error);
       }
     );
